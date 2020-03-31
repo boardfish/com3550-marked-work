@@ -1,15 +1,5 @@
 # Report
 
-<!--
-You might find the following guideline helpful (this is not mandatory but should
-be good starting point in most cases):
-
-Introduction, context about the school (500 words) Reflection on observation
-visits to the school (500 words) Thoughts about your experiences in the school,
-challenges you faced, things you learned, skills you developed (or wanted to
-develop and didn’t have time!) (1500 words) Conclusions (500 words)
--->
-
 ## Introduction
 
 The satisfaction of learning and understanding new concepts is universal.
@@ -141,33 +131,128 @@ it may seem.
 
 ## My Experience
 
-<!-- Thoughts about your experiences in the school -->
+### Observations
 
-- course is often taught by rote and content isn't particularly stimulating,
-  understandable that as it's a day job it's difficult to make every lesson
-  crazy interactive, but it could be a lot better
-- would it be possible to move a lot of exercises to building stuff that can
-  solve the problem, as opposed to just solving a ton of the same problem?
-- interesting that there's a reliance on worksheets with the same questions, as
-  opposed to a bunch of random questions - I whipped up generators pretty easily
-  in class
-- very good school with well-behaved classes, would welcome the opportunity to
-  return
+I found that some lessons were taught by reading from the course textbook, which
+the students would then type up to add to their own notes. This style of
+teaching ranks low on the pyramid of retention, and seemed suboptimal to me.
+However, i understand why it is employed - to craft resources and try to make
+every lesson as interactive as possible would be another job in itself. Given
+the opportunity, I would have liked to change this by using my role to introduce
+more interactive means of learning, as I did with the UEFI demonstration.
 
-<!-- challenges you faced -->
+Another realisation I had was that exercises based on repetition might not be as
+effective as developing software to answer those exercises. For example, in the
+lesson on fixed-point binary numbers, I was able to quickly craft a Ruby script
+that functioned as a quiz, giving the user randomly-generated fixed-point binary
+numbers, each one byte long. This worked as follows:
 
-- becoming comfortable with the environment
-- having to forge my own role
+1. Make a random byte
+2. insert a fixed point somewhere in the byte, and base the maximum power of 2 in
+  the number off this - e.g. for 1110.0000, the position of the fixed point is
+  after index 3, and the greatest value bit would be worth 2^3.
+3. calculate the value of the fixed-point binary number by iterating through and
+  reducing the power of 2 each time
 
-<!-- things you learned -->
+If this were given to the students as a task instead of worksheets with similar
+questions, I feel that the students' understanding would improve as a result.
+This style of learning may not be suitable for KS3, however, as it is reliant on
+programming ability - at that lower level, there is a disparity in skill between
+students.
 
-- they're bright kids, their inspiration needs tapping into and channeling in
-  the right ways! the current curriculum doesn't quite get this right
+The continued use of worksheets with similar questions interests me. Online
+platforms for education such as MyMaths and Times Tables Rock Stars bring
+opportunities for staff to evaluate students' progress and investment in
+learning. The pandemic also highlights the importance of remotely available
+tools such as these.
 
-<!-- skills you developed (or wanted to develop and didn’t have time!)  -->
+I see potential for platforms like these to grow, and particularly in the case
+of fixed-point binary numbers, I found it quite easy to create a generator to
+provide students with questions. Of course, developing scalable online platforms
+for hundreds of thousands of students to use is not an easy task by any stretch
+of the imagination, but the pandemic signals the fast arrival of a future where
+educational institutions might come to rely on them.
 
-- confidence
-- ability to explain concepts in a simple way
-- 
+In spite of this idealism and the potential for change, I am impressed by the
+behaviour of the students and the quality of teaching at King Ecgbert School. I
+would welcome the opportunity to return.
+
+### Challenges
+
+My primary challenge at King Ecgbert School was becoming comfortable with the
+environment. When I applied to take the module, I felt confident that I would
+begin to feel comfortable enough in the school to lead lessons. I knew, however,
+that this would take some time, and that I would need to build a good working
+relationship with not just the staff, but the students.
+
+When the pandemic hit, I felt as though I was approaching that point, having
+already taken several small opportunities to lead parts of lessons. Though Nick
+persuaded me before this to try and immerse myself in the class and ask students
+what they were working on, I thought that by establishing my role as a teaching
+assistant, I would gain familiarity with the class.
+
+This scenario reflected another of my challenges fairly well. I did not feel as
+though I was given a particular framework for my role, and had to forge it
+myself. At first, I found this quite difficult to navigate, but a combination of
+things helped me to feel a bit more comfortable.
+
+Firstly, the opportunity I took to show the UEFI on my laptop gave me a moment
+to speak and have the class's full attention, and I felt able to discuss more
+with Maya about this afterwards. This led to my section on open source software
+in the next lesson with her. 
+
+Secondly, when Nick encouraged me to teach fixed-point binary numbers without
+any prior preparation, I once again had the chance to teach. Admittedly, I was
+nervous in the moment, but I managed to explain the concept in a way that
+allowed the lesson to carry on as normal and helped the class to understand it
+effectively. Had my time at the school not been cut short by the pandemic, I
+feel that by this point, I had set myself up to take my role in stride and more
+confidently assist the class.
+
+### Lessons
+
+I was pleasantly surprised to see that the students had some strong inspiration
+and passion for their projects. Particularly, I was interested to see one
+developing an Engima simulation machine - a friend I met on my year in industry
+reported that he once did something of this nature for an assignment at
+university. Cases like this suggest to me that students at this level desire to
+be challenged with stimulating tasks, and wish to learn practically.
+
+### Skill Development
+
+In taking this module, I sought to improve my confidence and ability to explain
+concepts in a simple way. I took opportunities to exercise both. These are
+skills I have made strides to train in various ways throughout my life - on a
+personal level, I am still trying to discover what it means and what it takes to
+be confident in any situation. This experience, which confronted me with many
+unfamiliar people and scenarios, helped me move towards confidence.
 
 ## Conclusions
+
+In conclusion, I have really enjoyed being able to pass on knowledge and give
+back as part of this module. I feel that it has given me time to exercise
+valuable skills and think about the current and future direction of computer
+science education. Going into teaching is still unlikely to be my first career
+choice, but the scope for improvement of teaching and inspiration for students
+is vast.
+
+A more practical direction is someting I have longed for as a student, all the
+way from GCSE level to degree level. Whether this bias is a good bias to hold is
+something I was not able to find decisive proof on during my time at King
+Ecgbert School, but it continues to dictate my approach to teaching. Regardless
+of rebuttals to the validity of the NTL Learning Pyramid model, I would hope
+that my practical approach to teaching would support learning in it current form
+- @letrud2012rebuttal states that the more powerful forms of learning "have made
+several major contributions to our grasp of different subject matters", though
+they warn that such methods can be "overemphasized".
+
+```
+@article{letrud2012rebuttal,
+  title={A Rebuttal Of NTL Instituteʼs Learning Pyramid},
+  author={Letrud, K{\aa}re},
+  journal={Education},
+  volume={133},
+  number={1},
+  year={2012}
+}
+```
