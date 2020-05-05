@@ -3,7 +3,8 @@ date=$(date "+%_d\textsuperscript{$dateSuffix} %B %Y")
 pandoc --variable date="$date" --filter pandoc-citeproc -o \
 out/written-report.pdf written-report.md --pdf-engine=xelatex
 # Compile special project report
-pandoc special-project-report.md -o out/special-project-report.pdf --pdf-engine=xelatex
+pandoc --variable date="$date" --filter pandoc-citeproc -o \
+out/special-project-report.pdf special-project-report.md --pdf-engine=xelatex
 # Presentation
 
 # Sheets
