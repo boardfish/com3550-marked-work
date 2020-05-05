@@ -142,7 +142,9 @@ for increasing one's online presence and abilities as a developer.
 
 The exercise also demonstrates the strength of test-driven development, though a
 demonstration of continuous integration servers would be subject to
-implementation. 
+implementation. Instead of testing their code manually, students would be given
+a test suite ([Appendix II][Appendix II: Special Project Test Suite]) which
+their code would be run against.
 
 # Methods
 
@@ -174,10 +176,13 @@ would need to write a Python class `GetBirthDay` that could return which day it
 was upon a given date, as a number between 0 and 6 inclusive. For example,
 `GetBirthDay(8, 4, 2020)` would return `2` (Wednesday). They would need to do
 this without using date/time-related libraries, but they would have a
-pre-written test suite that tested the output of their code against a variety of
-scenarios. While completing this exercise, they would be encouraged to make a
-commit after completing a feature - a good landmark at which to make a commit
-would be after having made another test pass.
+pre-written test suite ([Appendix II][Appendix II: Special Project Test Suite])
+that tested the output of their code against a variety of scenarios. While
+completing this exercise, they would be encouraged to make a commit after
+completing a feature - a good landmark at which to make a commit would be after
+having made another test pass. The task sheet ([Appendix I][Appendix I: Special
+Project Task Sheet]) would be their guide in this task, but they would be
+permitted to ask for further help.
 
 The first part of the exercise would be to make it function for dates within the
 current year. In my implementation, this involved summing the number of days in
@@ -200,14 +205,14 @@ the pandemic. Originally, I established that it would be difficult and
 sub-optimal to encourage the school's IT department to install `git` tools on
 school PCs, upon advice from both Maya and my module tutor.
 
-My first solution to navigate the problem was to investigate taking out
-Raspberry Pi computers on loan from the university. Students would have been
-given a command line environment and access to a text editor (or potentially
-IDE, depending on the capacity of the Pi computers). From there, they would be
-able to write their code, run the test suite, and commit it. I also investigated
-hosting a Jenkins and Git server using Docker, so that students would be able to
-have the tests run against a continuous integration environment. This would
-bring the lesson closer to an emulation of industry software development.
+My first resolution was to investigate taking out Raspberry Pi computers on loan
+from the university. Students would have been given a command line environment
+and access to a text editor (or potentially IDE, depending on the capacity of
+the Pi computers). From there, they would be able to write their code, run the
+test suite, and commit it. I also investigated hosting a Jenkins and Git server
+using Docker, so that students would be able to have the tests run against a
+continuous integration environment. This would bring the lesson closer to an
+emulation of industry software development.
 
 This would have needed microSD cards for each board, a prebuilt system image
 with Git server credentials and Jenkins credentials for each user, and display
@@ -458,8 +463,99 @@ There are a lot of `git` providers online - **GitHub** might be the most familia
 and **GitLab**, but it's also possible to host your own `git` server using free or proprietary software. Free options
 include **Gitea** and **GitLab CE**, but the three main providers also offer their services to enterprise.
 
+## Appendix II: Special Project Test Suite
 
-## Appendix II: Original Jenkins CI server concept
+`tests.py`
+
+```python
+import unittest
+from getbirthday import GetBirthDay
+
+
+class TestGetBirthDay(unittest.TestCase):
+
+    def setUp(self):
+        pass
+
+    def output_under_upper_limit(self, gbd_instance, upperLimit):
+        self.assertLess(gbd_instance.day_index(), upperLimit)
+
+    def output_over_lower_limit(self, gbd_instance, lowerLimit):
+        self.assertGreater(gbd_instance.day_index(), lowerLimit)
+
+    # =======================
+    # Months
+    # =======================
+
+    def test_errors_if_year_outside_limits(self):
+        self.assertRaises(ValueError, lambda: GetBirthDay(-1, 1, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(1, -1, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(1, -1, -1))
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 1, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(1, 13, 2020))
+
+    def test_errors_if_dates_outside_month_limits(self):
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 1, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(30, 2, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 3, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(31, 4, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 5, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(31, 6, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 7, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 8, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(31, 9, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 10, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(31, 11, 2020))
+        self.assertRaises(ValueError, lambda: GetBirthDay(32, 12, 2020))
+
+    def test_outputs_within_limits(self):
+        for x in range(1, 31):
+            gbd = GetBirthDay(x, 1, 2020)
+            self.output_over_lower_limit(gbd, -1)
+            self.output_under_upper_limit(gbd, 7)
+
+    def test_important_dates_this_year(self):
+        # My birthday
+        self.assertEqual(GetBirthDay(8, 4, 2020).day_index(), 2)
+        # Christmas this year
+        self.assertEqual(GetBirthDay(25, 12, 2020).day_index(), 4)
+        # Super Smash Bros. Ultimate's second anniversary
+        self.assertEqual(GetBirthDay(6, 12, 2020).day_index(), 6)
+        # The 2020 Olympics begin
+        self.assertEqual(GetBirthDay(24, 7, 2020).day_index(), 4)
+
+    # ==========================
+    # Years
+    # ==========================
+
+    # Leap year specific tests
+    @unittest.skip("Delete this line for the extension task")
+    def test_errors_if_dates_outside_feb_limits(self):
+        # divisible by 4
+        self.assertIsInstance(GetBirthDay(29, 2, 2020), GetBirthDay)
+        # divisible by 100 but not 400
+        self.assertRaises(ValueError, lambda: GetBirthDay(30, 2, 1900))
+        # divisible by 400
+        self.assertIsInstance(GetBirthDay(29, 2, 2000), GetBirthDay)
+
+    @unittest.skip("Delete this line for the extension task")
+    def test_important_dates(self):
+        # My birthday
+        self.assertEqual(GetBirthDay(8, 4, 1998).day_index(), 2)
+        # Super Smash Bros. Ultimate's release date
+        self.assertEqual(GetBirthDay(6, 12, 2018).day_index(), 3)
+        # Satoru Iwata's birthday
+        self.assertEqual(GetBirthDay(6, 12, 1959).day_index(), 6)
+        # Kamen Rider's first airdate
+        self.assertEqual(GetBirthDay(3, 4, 1971).day_index(), 5)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+## Appendix III: Original Jenkins CI server concept
 
 Please see https://github.com/boardfish/call_jenkins_builds_from_ruby.
 
@@ -498,7 +594,7 @@ authenticate with both APIs. These items would be created for each user:
   Appendix I -->, test suite, and `Jenkinsfile` that dictates how the test suite
   should be run on Jenkins.
 
-## Appendix III: Special Project Closing Survey
+## Appendix IV: Special Project Closing Survey
 
 ### Exposure to and understanding of `git`
 

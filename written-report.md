@@ -198,10 +198,11 @@ introduce more interactive means of learning, as I did with the UEFI
 demonstration.
 
 Another realisation I had was that rote could be replaced with exercises that
-challenge students' logic and creativity practically. For example, in the lesson on
-fixed-point binary numbers, I was able to quickly craft a Ruby script that
-functioned as a quiz, giving the user randomly-generated fixed-point binary
-numbers, each one byte long. This worked as follows:
+challenge students' logic and creativity practically. For example, in the lesson
+on fixed-point binary numbers, I was able to quickly craft a Ruby script that
+functioned as a quiz ([Appendix I][Appendix I: `fixed_point.rb`]), giving the
+user randomly-generated fixed-point binary numbers, each one byte long. This
+worked as follows:
 
 1. Generate a random byte
 2. Insert a fixed point somewhere in the byte, and base the maximum power of $2$
@@ -211,7 +212,10 @@ numbers, each one byte long. This worked as follows:
    reducing the power of $2$ each time
 
 If this were given to the students as a task instead of worksheets with similar
-questions, I feel that the students' understanding would improve as a result.
+questions, I feel that the students' understanding would improve as a result. I
+made similar strides to support students' learning in this way with
+demonstrations of uses of arrays ([Appendix II][Appendix II:
+`noughts-and-crosses.rb`]) and queues ([Appendix III][Appendix III: `Queue`]).
 Understanding of the topic is not always reflected by the ability to answer
 repeat questions. Instead, understanding may be better tested by seeing if the
 students can express the algorithm in a different form - i.e. code. This style
@@ -290,7 +294,9 @@ concepts in a simple way. I took opportunities to exercise both. These are
 skills I have made strides to train in various ways throughout my life - on a
 personal level, I am still trying to discover what it means and what it takes to
 be confident in any situation. This experience, which confronted me with many
-unfamiliar people and scenarios, helped me move towards confidence.
+unfamiliar people and scenarios, helped me move towards confidence. In
+particular, teaching small parts of lessons without preparation helped me test
+and extend the limits of my comfort zone.
 
 # Conclusions
 
