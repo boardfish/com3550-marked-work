@@ -1,5 +1,7 @@
 # Compile report
-pandoc written-report.md -o out/written-report.pdf --pdf-engine=xelatex
+date=$(date "+%_d\textsuperscript{$dateSuffix} %B %Y")
+pandoc --variable date="$date" --filter pandoc-citeproc -o \
+out/written-report.pdf written-report.md --pdf-engine=xelatex
 # Compile special project report
 pandoc special-project-report.md -o out/special-project-report.pdf --pdf-engine=xelatex
 # Presentation
