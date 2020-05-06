@@ -1,5 +1,5 @@
 ---
-title: Report \break
+title: Written Report \break
   \large COM3550 Undergraduate Ambassador Ambassadors Scheme in Computer Science
 subtitle: 
 author: |

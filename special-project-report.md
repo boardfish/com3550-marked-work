@@ -222,6 +222,10 @@ have still allowed students to interface with Git and their code, without
 creating an overwhelming dependency on additional hardware. Before the pandemic
 hit, I was able to make progress with Maya on enrolling the school for Repl.it.
 
+It is unfortunate that this report and its subject matter alike ended so
+abruptly. It would have been interesting to see the conclusions that could be
+drawn from running this exercise with the students.
+
 \backmatter
 
 # Appendices
