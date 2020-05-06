@@ -41,7 +41,13 @@ I took the initiative to develop a calculator for the questions the students
 were answering. I suggested that the students could develop this too as a way of
 testing their understanding of the concept.
 
-**(5) Understanding the educational needs of others:**
+**(5) Understanding the educational needs of others:**   
+When explaining the concept of fixed-point binary numbers, I made sure to pace
+myself and assess that the class were understanding the topic. First, I ensured
+that they all understood each digit was mapped to a power of 2 in sequence.
+Then, I ensured they understood how fixed-point binary numbers continued the
+sequence through to the negatives, which represent fractions. I finished with an
+example.
 
 **(6) Use critical self-evaluation to identify three specific improvements you can make in the future:**
 
@@ -52,6 +58,10 @@ closely with Nick on this. *Thus far, communication outside of visiting the
 school has been an issue - I have been encouraged to send emails by both members
 of staff but have received no response, making this difficult to act on.*
 
-b)  
+b)  Initially, I was overcome with nerves and rushed myself during the
+explanation. I was able to recover from this quickly and deliver the explanation
+as I had originally intended. In the future, I should be less daunted by this task.
 
-c)  
+c)  I may now be able to take on larger parts of lessons - not just ad-hoc, but
+with some prior planning alongside Nick. I need to be more assertive in
+expressing to him that I would like to do this.

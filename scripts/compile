@@ -8,3 +8,8 @@ out/special-project-report.pdf special-project-report.md --pdf-engine=xelatex
 # Presentation
 
 # Sheets
+for f in learning-diary/*.md
+do
+  echo "pandoc '$f' -o 'out/$f.pdf'"
+  pandoc "$f" -o "out/$f.pdf"
+done

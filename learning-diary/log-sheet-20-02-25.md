@@ -29,7 +29,6 @@ given that I had been handed control of the lesson at that point. I was less
 comfortable approaching the students and asking about their personal projects.
 
 **(2) Working with others:**   
-
 During the Y9 lesson, I was able to interject and suggest showing the UEFI on my
 laptop. This didn't distract from the lesson, was quick, and helped the students
 by giving them a practical look at the topic. However, as mentioned, I found it
